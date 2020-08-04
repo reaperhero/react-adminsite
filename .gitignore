@@ -1,0 +1,22 @@
+
+# dependencies
+admin-client-blank/node_modules
+admin-client-blank/.pnp
+admin-client-blank/.pnp.js
+
+# testing
+admin-client-blank/coverage
+
+# production
+admin-client-blank/build
+
+# misc
+admin-client-blank/.DS_Store
+admin-client-blank/.idea
+admin-client-blank/.env.local
+admin-client-blank/.env.development.local
+admin-client-blank/.env.test.local
+admin-client-blank/.env.production.local
+admin-client-blank/npm-debug.log*
+admin-client-blank/yarn-debug.log*
+admin-client-blank/yarn-error.log*
