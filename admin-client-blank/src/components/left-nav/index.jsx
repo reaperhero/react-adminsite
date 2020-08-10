@@ -10,7 +10,7 @@ const SubMenu = Menu.SubMenu;
 
 class LeftNav extends Component {
 
-  getMenuNodes = (menuList) => {
+  getMenuNodes_map = (menuList) => {
     return menuList.map(item => {
       if (!item.children) {
         return (
@@ -38,6 +38,36 @@ class LeftNav extends Component {
       }
 
     })
+  }
+
+  getMenuNodes = (menuList) => {
+    return menuList.reduce((pre, item) => {
+      if (!item.children) {
+        pre.push((
+          <Menu.Item key={item.key}>
+            <Link to={item.key}>
+              <Icon type={item.icon}/>
+              <span>{item.title}</span>
+            </Link>
+          </Menu.Item>
+        ))
+      } else {
+        pre.push((
+          <SubMenu
+            key={item.key}
+            title={
+              <span>
+              <Icon type={item.icon}/>
+              <span>{item.title}</span>
+            </span>
+            }
+          >
+            {this.getMenuNodes(item.children)}
+          </SubMenu>
+        ))
+      }
+      return pre
+    }, [])
   }
 
   componentWillMount() {
